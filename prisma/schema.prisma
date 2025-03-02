@@ -27,3 +27,12 @@ model CopSelection {
   cityId   Int
   city     City   @relation(fields: [cityId], references: [id])  // Relation to City
 }
+
+model Cop {
+  id               Int    @id @default(autoincrement())
+  name             String
+  selectedCityId   Int
+  selectedVehicleId Int
+  // other fields if needed
+}
+
