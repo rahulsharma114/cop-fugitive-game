@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+  // Create multiple cities
   await prisma.city.createMany({
     data: [
       { name: 'Yapkashnagar', distance: 60 },
@@ -13,6 +14,7 @@ async function main() {
     ]
   });
 
+  // Create multiple vehicles
   await prisma.vehicle.createMany({
     data: [
       { type: 'EV Bike', range: 60, count: 2 },
