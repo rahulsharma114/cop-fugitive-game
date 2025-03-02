@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "db-seed": "tsc prisma/seed.ts && cat prisma/seed.js | node --input-type=\"commonjs\" && rm prisma/seed.js",
-    "seed": "npm run db-seed"
+    "seed": "npm run db-seed",
+    "postinstall": "prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1",

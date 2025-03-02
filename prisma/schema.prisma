@@ -8,9 +8,10 @@ generator client {
 }
 
 model City {
-  id       Int    @id @default(autoincrement())
-  name     String
-  distance Int
+  id            Int             @id @default(autoincrement())
+  name          String
+  distance      Int
+  copSelections CopSelection[]  // Inverse relation (one city can have many cop selections)
 }
 
 model Vehicle {
@@ -21,9 +22,8 @@ model Vehicle {
 }
 
 model CopSelection {
-  id      Int  @id @default(autoincrement())
-  cityId  Int
-  vehicleId Int
-  city    City  @relation(fields: [cityId], references: [id])
-  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+  id       Int    @id @default(autoincrement())
+  copName  String
+  cityId   Int
+  city     City   @relation(fields: [cityId], references: [id])  // Relation to City
 }
