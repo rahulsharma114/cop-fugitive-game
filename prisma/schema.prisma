@@ -15,10 +15,11 @@ model City {
 }
 
 model Vehicle {
-  id    Int    @id @default(autoincrement())
-  type  String
-  range Int
-  count Int
+  id             Int     @id @default(autoincrement())
+  type           String
+  range          Int
+  availableCount Int
+  // other fields if necessary
 }
 
 model CopSelection {
