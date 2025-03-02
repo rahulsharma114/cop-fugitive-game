@@ -1,0 +1,29 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model City {
+  id       Int    @id @default(autoincrement())
+  name     String
+  distance Int
+}
+
+model Vehicle {
+  id    Int    @id @default(autoincrement())
+  type  String
+  range Int
+  count Int
+}
+
+model CopSelection {
+  id      Int  @id @default(autoincrement())
+  cityId  Int
+  vehicleId Int
+  city    City  @relation(fields: [cityId], references: [id])
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+}
