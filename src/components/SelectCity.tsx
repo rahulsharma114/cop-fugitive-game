@@ -1,5 +1,3 @@
-// components/SelectCity.tsx
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -20,6 +18,7 @@ interface SelectCityProps {
 
 const SelectCity = ({ availableCities, onSubmit }: SelectCityProps) => {
   const router = useRouter();
+  
   // Define the form schema using zod for validation
   const citySchema = z.object({
     cityId: z.string().min(1, 'City selection is required'),
@@ -31,10 +30,11 @@ const SelectCity = ({ availableCities, onSubmit }: SelectCityProps) => {
   });
 
   // Handle form submission
-  const handleFormSubmit = (data: { cityId: number }) => {
-    console.log('form', data);
-    onSubmit(data);
-    router.push(`/select-vehicle?cityId=${data.cityId}`);
+  const handleFormSubmit = (data: { cityId: string }) => {
+    const cityId = Number(data.cityId); // Convert string to number
+    console.log('form', cityId);
+    onSubmit({ cityId }); // Pass the converted cityId
+    router.push(`/select-vehicle?cityId=${cityId}`);
   };
 
   return (

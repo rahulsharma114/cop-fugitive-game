@@ -1,7 +1,7 @@
 // pages/select-vehicle.tsx
 
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const vehicles = [
   { type: 'EV Bike', range: 60 },
@@ -9,7 +9,7 @@ const vehicles = [
   { type: 'EV SUV', range: 120 },
 ];
 
-const cityDistances: any = {
+const cityDistances: { [key: number]: number } = {
   1: 60, // Yapkashnagar
   2: 50, // Lihaspur
   3: 40, // Narmis City
