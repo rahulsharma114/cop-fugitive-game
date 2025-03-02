@@ -8,9 +8,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   if (req.method === 'POST') {
-    const { type, range, availableCount } = req.body;
+    const { type, range, count } = req.body;
     const newVehicle = await prisma.vehicle.create({
-      data: { type, range, availableCount },
+      data: { type, range, count },
     });
     return res.json(newVehicle);
   }
