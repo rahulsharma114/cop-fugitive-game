@@ -36,3 +36,9 @@ model Cop {
   // other fields if needed
 }
 
+model Fugitive {
+  id     Int    @id @default(autoincrement())
+  cityId Int
+  // Add other fields as required
+}
+
